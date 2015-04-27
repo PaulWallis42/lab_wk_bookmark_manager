@@ -16,6 +16,8 @@ DataMapper.auto_upgrade!
 
 class BookmarkManager < Sinatra::Base
 
+  set :public_folder, proc { File.join(root, "..", "public") }
+
   enable :sessions
   set :session_secret, 'super secret'
   use Rack::Flash
